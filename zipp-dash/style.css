@@ -1,0 +1,64 @@
+/* Zipp Dash page: the canvas is scaled to fit the window at 16:9. */
+:root {
+  --bg: #0d1b2a;
+  --fg: #d9e7f5;
+  --muted: #8aa1b8;
+  --key: #1b2f45;
+  --accent: #ffd23f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding-inline: 16px;
+  padding-block: 16px;
+  display: grid;
+  place-items: center;
+}
+
+.stage {
+  width: min(100%, calc((100vh - 90px) * 16 / 9), 1280px);
+  display: grid;
+  gap: 12px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  border-radius: 10px;
+  background: #3fa9e8;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.45);
+  outline: none;
+}
+canvas:focus-visible { box-shadow: 0 0 0 3px var(--accent), 0 10px 40px rgb(0 0 0 / 0.45); }
+
+.keys {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  color: var(--muted);
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 1px 6px;
+  margin-right: 2px;
+  border-radius: 4px;
+  background: var(--key);
+  border-bottom: 2px solid #0a1520;
+  color: var(--fg);
+  font: 600 12px/1.5 system-ui, sans-serif;
+  text-align: center;
+}
